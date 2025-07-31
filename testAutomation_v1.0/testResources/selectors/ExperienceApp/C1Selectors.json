@@ -931,6 +931,10 @@
     "deleteNoteSvg": "[data-tid=\"btn-delete-2\"]",
     "deleteNoteBtn": "[data-tid=\"button-primary-deleteNote\"]",
     "closeButton": "button[data-tid=\"notebox-button-cancel\"]",
-    "addNotesCanvas": "div.konvajs-content canvas"
+    "addNotesCanvas": "div.konvajs-content canvas",
+    "noteListItems":".sc-bOJpdy.jfHhQA.MuiList-root li",
+    "spanTag": "a > span[data-tid^=\"text-note-list-\"]",
+    "deletebuttontag": "div > div > button[data-tid]",
+    "deleteTid": "data-tid"
   }
 }

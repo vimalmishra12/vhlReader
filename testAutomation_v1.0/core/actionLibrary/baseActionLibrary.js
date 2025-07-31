@@ -270,6 +270,7 @@ module.exports = {
 
     getAttribute: async function (selector, attributeValue) {
         try {
+            console.log("type of selector", typeof selector);
             res = await (await $(selector)).getAttribute(attributeValue);
             message = "element:" + selector + " attributeValue:" + attributeValue + " value:" + res;
             await logger.logInto(await stackTrace.get(), message);
@@ -279,6 +280,18 @@ module.exports = {
             return err;
         }
     },
+
+    getAttributeByElement: async function (element, attributeName) {
+    try {
+        const res = await element.getAttribute(attributeName);
+        const message = `element (WebdriverIO element), attribute: ${attributeName}, value: ${res}`;
+        await logger.logInto(await stackTrace.get(), message);
+        return res;
+    } catch (err) {
+        await logger.logInto(await stackTrace.get(), err.message, "error");
+        return err;
+    }
+},
 
     getElementCount: async function (selector) {
         message = "element:" + selector;
@@ -315,7 +328,7 @@ module.exports = {
             return err;
         }
     },
-    
+
     findElement: async function (selector) {
         message = "element:" + selector;
         try {
@@ -331,12 +344,12 @@ module.exports = {
     getKthElement: async function (selector, k) {
         const elements = await this.findElements(selector);
         if (k < 0 || k >= elements.length) {
-          console.warn("Invalid k: index out of range");
-          return null;
+            console.warn("Invalid k: index out of range");
+            return null;
         }
         return elements[k];
     },
-    
+
 
     scrollIntoView: async function (selector, options) {
         message = "element:" + selector;
@@ -454,6 +467,23 @@ module.exports = {
         }
     },
 
+
+
+    // COMMENT: a fucntion to get the child elements of a parent element
+
+    childElements: async function (parentElement, selector) {
+        const message = "message" + parentElement +selector;
+        try {
+            await logger.logInto(await stackTrace.get(), message);
+            const elements = await parentElement.$$(selector);
+            return elements;
+        } catch (err) {
+            await logger.logInto(await stackTrace.get(), err.message, "error");
+            return err;
+        }
+    },
+
+
     keyPress: async function (value) {
         message = "key:" + value;
         try {
@@ -466,17 +496,17 @@ module.exports = {
         }
     },
 
-   
+
 
     dragAndDropWithPath: async function (
         canvasElementSelector,
         startPoint_x1, startPoint_y1,       // Starting coordinates
         endPoint_x2, endPoint_y2,       // Ending coordinates
-       // intermediatePoints = [{ x: startPoint_x1, y: startPoint_y1 }] // Default intermediate points
-        intermediatePoints = [] 
-      ) {
+        // intermediatePoints = [{ x: startPoint_x1, y: startPoint_y1 }] // Default intermediate points
+        intermediatePoints = []
+    ) {
         const canvasElement = await $(canvasElementSelector); // Ensure the canvas selector is correct
-      
+
         // Scroll the canvas into view, if necessary
         await canvasElement.scrollIntoView();
 
@@ -496,42 +526,60 @@ module.exports = {
         // Validate intermediate points
         for (const point of intermediatePoints) {
             if (!isWithinCanvas(point.x, point.y)) {
-            throw new Error("  Intermediate point (${point.x}, ${point.y}) is out of canvas bounds.");
+                throw new Error("  Intermediate point (${point.x}, ${point.y}) is out of canvas bounds.");
             }
         }
-      
+
         // Generate the intermediate actions
         const intermediateActions = intermediatePoints.map(point => ({
-          type: "pointerMove",
-          origin: canvasElement,
-          x: point.x,
-          y: point.y
+            type: "pointerMove",
+            origin: canvasElement,
+            x: point.x,
+            y: point.y
         }));
-      
+
         // Define the full actions array
         const actions = [
-          { type: "pointerMove", origin: canvasElement, x: startPoint_x1, y: startPoint_y1 }, // Starting point
-          { type: "pointerDown", button: 0 },
-          ...intermediateActions, 
-         // ...(intermediateActions && {intermediateActions}),// Insert intermediate points here
-          { type: "pointerMove", origin: canvasElement, x: endPoint_x2, y: endPoint_y2 }, // Ending point
-          { type: "pointerUp", button: 0 } // Release mouse button
+            { type: "pointerMove", origin: canvasElement, x: startPoint_x1, y: startPoint_y1 }, // Starting point
+            { type: "pointerDown", button: 0 },
+            ...intermediateActions,
+            // ...(intermediateActions && {intermediateActions}),// Insert intermediate points here
+            { type: "pointerMove", origin: canvasElement, x: endPoint_x2, y: endPoint_y2 }, // Ending point
+            { type: "pointerUp", button: 0 } // Release mouse button
         ];
-      
+
         // Perform the actions
         await browser.performActions([
-          {
-            type: "pointer",
-            id: "mouse1",
-            parameters: { pointerType: "mouse" },
-            actions,
-          },
+            {
+                type: "pointer",
+                id: "mouse1",
+                parameters: { pointerType: "mouse" },
+                actions,
+            },
         ]);
-      
+
         // Release all actions
         await browser.releaseActions();
-      },
-      
-      
+    },
+
+    findNoteListItemByText: async function (noteText, noteListItems, selector) {
+        const listItems = await this.findElements(noteListItems);
+
+        for (let li of listItems) {
+            // Get all span elements inside li > a that have data-tid starting with "text-note-list-"
+            const spans = await li.$$(selector);
+
+            for (let span of spans) {
+                const text = await span.getText();
+                if (text.trim() === noteText.trim()) {
+                    return li; // Found the matching item
+                }
+            }
+        }
+
+        return null; // No match found
+    }
+
+
 
 }
