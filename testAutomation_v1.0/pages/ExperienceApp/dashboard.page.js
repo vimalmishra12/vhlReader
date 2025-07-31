@@ -125,7 +125,7 @@ module.exports = {
   },
 
   
-  click_ebook_btn: async function (testdata) {
+  vhl: async function (testdata) {
     await logger.logInto(await stackTrace.get());
     var res;
     console.log("this is testdata 131" , testdata)
