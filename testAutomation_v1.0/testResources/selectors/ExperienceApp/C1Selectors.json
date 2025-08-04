@@ -936,6 +936,7 @@
     "spanTag": "a > span[data-tid^=\"text-note-list-\"]",
     "deletebuttontag": "div > div > button[data-tid]",
     "deleteTid": "data-tid"
+
   },
   "vhlToc": {
   "tocLaunchBtn" : "button[id=\":rm:\"]",
@@ -949,6 +950,7 @@
   "tocHeading" : "#toc-heading",
   "tocUndockSvg" : "#undock_svg__Layer_1",
 "tocDockSvg" : "#dock_svg__Layer_1"
+
 
   }
 }

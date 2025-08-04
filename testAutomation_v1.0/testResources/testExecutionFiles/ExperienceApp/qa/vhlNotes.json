@@ -42,7 +42,6 @@
     ],
     "BeforeEach": [],
     "Test": [
-      
       {
         "id": "TST_VHLN_TC_1",
         "description": "Click Note Button",
@@ -73,7 +72,7 @@
         "testFile": "./test/ExperienceApp/notesVhlTest.test.js",
         "testData": []
       },
-       {
+      {
         "id": "TST_VHLN_TC_6",
         "description": "Set Notes Text",
         "testFile": "./test/ExperienceApp/notesVhlTest.test.js",
@@ -137,7 +136,6 @@
     ],
     "BeforeEach": [],
     "Test": [
-      
       {
         "id": "TST_VHLN_TC_1",
         "description": "Click Note Button",
@@ -162,18 +160,19 @@
         "testFile": "./test/ExperienceApp/notesVhlTest.test.js",
         "testData": []
       },
-         {
-  "id": "TST_VHLN_TC_9",
-  "description": "Click on Delete Notes Btn",
-  "testFile": "./test/ExperienceApp/notesVhlTest.test.js",
-  "testData": [
-    {
-      "dataFile": "./testResources/testcaseData/ExperienceApp/qa/vhlNotesTest.json",
-      "jsonPath": "vhl.vhlNotes"
-    }
-  ]
-},
-         {
+
+      {
+        "id": "TST_VHLN_TC_9",
+        "description": "Click on Delete Notes Btn",
+        "testFile": "./test/ExperienceApp/notesVhlTest.test.js",
+        "testData": [
+          {
+            "dataFile": "./testResources/testcaseData/ExperienceApp/qa/vhlNotesTest.json",
+            "jsonPath": "vhl.vhlNotes"
+          }
+        ]
+      },
+      {
         "id": "TST_VHLN_TC_10",
         "description": "Click on Delete Notes Btn Confirmation",
         "testFile": "./test/ExperienceApp/notesVhlTest.test.js",
@@ -190,4 +189,3 @@
     "After": []
   }
 }
-
