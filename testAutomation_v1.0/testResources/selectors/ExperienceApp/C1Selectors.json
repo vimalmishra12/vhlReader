@@ -945,7 +945,8 @@
   "tocSelectLessonBtn" : "button[data-tid=\"icon-togglegroupexpansion-0\"]",
   "tocSelectPage" : "#resource-text-0-0",
   "tocEnterPageNumber" : "#inputBaseRef",
-  "tocEnterBtn" : "[data-tid=\"button-findPage\"]"
+  "tocEnterBtn" : "[data-tid=\"button-findPage\"]",
+  "tocHeading" : "#toc-heading"
 
   }
 }

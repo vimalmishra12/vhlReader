@@ -12,7 +12,7 @@ tocSelectLessonBtn: selectorFile.vhlToc.tocSelectLessonBtn,
 tocSelectPage: selectorFile.vhlToc.tocSelectPage,
 tocEnterPageNumber: selectorFile.vhlToc.tocEnterPageNumber,
 tocEnterBtn: selectorFile.vhlToc.tocEnterBtn,
-tocHeading: selectorFile.css.ComproC1.vhlToc.tocHeading,
+tocHeading: selectorFile.vhlToc.tocHeading,
 
 
 isInitialized: async function ()
@@ -46,18 +46,18 @@ tocHeading:(( await action.getElementCount(this.tocHeading)) > 0) ? await action
 
 
 click_tocLaunchBtn: async function () {
-await logger.logInto(await stackTrace.get());
-var res;
-res =await action.click(this.tocLaunchBtn);
-if (true == res) {
- await logger.logInto(await stackTrace.get(), " tocLaunchBtn is clicked");
-res = await action.waitForDisplayed(this. tocHeading, undefined, true);
-}
-else {
-await logger.logInto(await stackTrace.get(), res +"tocLaunchBtn is NOT clicked", 'error');
-}
-return res;
-},
+    await logger.logInto(await stackTrace.get());
+    var res;
+    res =await action.click(this.tocLaunchBtn);
+    if (true == res) {
+     await logger.logInto(await stackTrace.get(), " tocLaunchBtn is clicked");
+    res = await action.waitForDisplayed(this. tocHeading, undefined);
+    }
+    else {
+    await logger.logInto(await stackTrace.get(), res +"tocLaunchBtn is NOT clicked", 'error');
+    }
+    return res;
+    },
 
 click_tocDockBtn: async function () {
 await logger.logInto(await stackTrace.get());
