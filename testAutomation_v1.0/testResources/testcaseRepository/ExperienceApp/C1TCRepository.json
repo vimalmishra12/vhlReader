@@ -4,6 +4,75 @@
   "selectorFile": "./testResources/selectors/ExperienceApp/C1Selectors.json",
   "modules": [
     {
+    "modulename": "Validation of TOC VHL Functionality",
+    "moduleId": "",
+    "testFile": "./test/ExperienceApp/vhlTocTest.test.js",
+    "testCaseRepo": "./testResources/testcaseRepository/ExperienceApp/C1TCRepository.json",
+    "testcase": [
+      {
+        "id": "TST_TOCT_TC_1",
+        "description": "Validate TOC Initialization",
+        "tags": "P1",
+        "visualTest": true
+      },
+      {
+        "id": "TST_TOCT_TC_2",
+        "description": "Click TOC Launch Button",
+        "tags": "P1",
+        "visualTest":true
+      },
+      {
+        "id": "TST_TOCT_TC_3",
+        "description": "Click TOC Dock Button",
+        "tags": "P1",
+        "visualTest": false
+      },
+      {
+        "id": "TST_TOCT_TC_4",
+        "description": "Click TOC Undock Button",
+        "tags": "P1",
+        "visualTest": false
+      },
+      {
+        "id": "TST_TOCT_TC_5",
+        "description": "Click TOC Close Button",
+        "tags": "P1",
+        "visualTest": false
+      },
+      {
+        "id": "TST_TOCT_TC_6",
+        "description": "Click TOC Select Lesson Button",
+        "tags": "P1",
+        "visualTest": false
+      },
+      {
+        "id": "TST_TOCT_TC_7",
+        "description": "Click TOC Select Page",
+        "tags": "P1",
+        "visualTest": false
+      },
+      {
+        "id": "TST_TOCT_TC_8",
+        "description": "Set Page Number in TOC",
+        "tags": "P1",
+        "visualTest": false
+      },
+      {
+        "id": "TST_TOCT_TC_9",
+        "description": "Click Enter Button in TOC",
+        "tags": "P1",
+        "visualTest": false
+      },
+      {
+        "id": "TST_TOCT_TC_10",
+        "description": "Validate TOC UI Elements Data",
+        "tags": "P1",
+        "visualTest": false
+      }
+    ]
+  },
+
+    {
       "modulename": "Validation of Notes VHL Functionality",
       "moduleId": "",
       "testFile": "./test/ExperienceApp/notesVhlTest.test.js",

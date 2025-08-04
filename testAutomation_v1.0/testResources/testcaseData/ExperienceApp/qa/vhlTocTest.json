@@ -1,0 +1,16 @@
+{
+  "vhl": {
+    "vhlToc": {
+      "pageNumber": "5",
+      "tocLaunchBtn": "Launch TOC",
+      "tocDockBtn": "Dock",
+      "tocUndockBtn": "Undock",
+      "tocCloseBtn": "Close",
+      "tocSelectLessonBtn": "Select Lesson",
+      "tocSelectPage": "Select Page",
+      "tocEnterPageNumber": "5",
+      "tocEnterBtn": "Enter",
+      "tocHeading": "Table of Contents"
+    }
+  }
+}
