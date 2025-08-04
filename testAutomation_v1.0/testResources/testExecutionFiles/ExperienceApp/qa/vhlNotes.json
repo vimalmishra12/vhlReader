@@ -163,11 +163,16 @@
         "testData": []
       },
          {
-        "id": "TST_VHLN_TC_9",
-        "description": "Click on Delete Notes Btn",
-        "testFile": "./test/ExperienceApp/notesVhlTest.test.js",
-        "testData": []
-      },
+  "id": "TST_VHLN_TC_9",
+  "description": "Click on Delete Notes Btn",
+  "testFile": "./test/ExperienceApp/notesVhlTest.test.js",
+  "testData": [
+    {
+      "dataFile": "./testResources/testcaseData/ExperienceApp/qa/vhlNotesTest.json",
+      "jsonPath": "vhl.vhlNotes"
+    }
+  ]
+},
          {
         "id": "TST_VHLN_TC_10",
         "description": "Click on Delete Notes Btn Confirmation",

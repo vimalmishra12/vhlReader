@@ -59,6 +59,7 @@ await assertion.assertEqual(sts.tocSelectLessonBtn, testdata.tocSelectLessonBtn,
 await assertion.assertEqual(sts.tocSelectPage, testdata.tocSelectPage,"tocSelectPage Values is not as expected.");
 await assertion.assertEqual(sts.tocEnterPageNumber, testdata.tocEnterPageNumber,"tocEnterPageNumber Values is not as expected.");
 await assertion.assertEqual(sts.tocEnterBtn, testdata.tocEnterBtn,"tocEnterBtn Values is not as expected.");
+await assertion.assertEqual(sts.tocHeading, testdata.tocHeading,"tocHeading Values is not as expected.");
 },
 
 }

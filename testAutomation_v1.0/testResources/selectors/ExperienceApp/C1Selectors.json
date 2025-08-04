@@ -931,6 +931,21 @@
     "deleteNoteSvg": "[data-tid=\"btn-delete-2\"]",
     "deleteNoteBtn": "[data-tid=\"button-primary-deleteNote\"]",
     "closeButton": "button[data-tid=\"notebox-button-cancel\"]",
-    "addNotesCanvas": "div.konvajs-content canvas"
+    "addNotesCanvas": "div.konvajs-content canvas",
+    "noteListItems":".sc-bOJpdy.jfHhQA.MuiList-root li",
+    "spanTag": "a > span[data-tid^=\"text-note-list-\"]",
+    "deletebuttontag": "div > div > button[data-tid]",
+    "deleteTid": "data-tid"
+  },
+  "vhlToc": {
+  "tocLaunchBtn" : "button[id=\":rm:\"]",
+  "tocDockBtn" : "button[id=\":r14:\"]",
+  "tocUndockBtn" : "button[data-tid=\"TOC-button-undock\"]",
+  "tocCloseBtn" : "#closeTOCBtn",
+  "tocSelectLessonBtn" : "button[data-tid=\"icon-togglegroupexpansion-0\"]",
+  "tocSelectPage" : "#resource-text-0-0",
+  "tocEnterPageNumber" : "#inputBaseRef",
+  "tocEnterBtn" : "[data-tid=\"button-findPage\"]"
+
   }
 }

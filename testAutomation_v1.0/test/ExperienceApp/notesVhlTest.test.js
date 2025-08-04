@@ -44,9 +44,14 @@ sts = await vhlNotes.click_notePreviewText();
 await assertion.assertEqual(sts, true,"notePreviewText are not Clicked");
 },
 
-TST_VHLN_TC_9 :   async function (testdata) { 
-sts = await vhlNotes.click_deleteNoteSvg();
-await assertion.assertEqual(sts, true,"deleteNoteSvg are not Clicked");
+// TST_VHLN_TC_9 :   async function (testdata) { 
+// sts = await vhlNotes.click_deleteLastNote();
+// await assertion.assertEqual(sts, true,"deleteNoteSvg are not Clicked");
+// },
+
+TST_VHLN_TC_9: async function (testdata) {
+    sts = await vhlNotes.click_deleteNoteSvg(testdata);
+    await assertion.assertEqual(sts, true, `"${testdata.text}" note was not deleted`);
 },
 
 TST_VHLN_TC_10 :   async function (testdata) { 

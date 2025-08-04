@@ -12,6 +12,7 @@ tocSelectLessonBtn: selectorFile.vhlToc.tocSelectLessonBtn,
 tocSelectPage: selectorFile.vhlToc.tocSelectPage,
 tocEnterPageNumber: selectorFile.vhlToc.tocEnterPageNumber,
 tocEnterBtn: selectorFile.vhlToc.tocEnterBtn,
+tocHeading: selectorFile.css.ComproC1.vhlToc.tocHeading,
 
 
 isInitialized: async function ()
@@ -38,6 +39,7 @@ tocSelectLessonBtn:(( await action.getElementCount(this.tocSelectLessonBtn)) > 0
 tocSelectPage:(( await action.getElementCount(this.tocSelectPage)) > 0) ? await action.getText(this.tocSelectPage) : null,
 tocEnterPageNumber:(( await action.getElementCount(this.tocEnterPageNumber)) > 0) ? await action.getText(this.tocEnterPageNumber) : null,
 tocEnterBtn:(( await action.getElementCount(this.tocEnterBtn)) > 0) ? await action.getText(this.tocEnterBtn) : null,
+tocHeading:(( await action.getElementCount(this.tocHeading)) > 0) ? await action.getText(this.tocHeading) : null,
 }
  return obj; 
 },
@@ -49,6 +51,7 @@ var res;
 res =await action.click(this.tocLaunchBtn);
 if (true == res) {
  await logger.logInto(await stackTrace.get(), " tocLaunchBtn is clicked");
+res = await action.waitForDisplayed(this. tocHeading, undefined, true);
 }
 else {
 await logger.logInto(await stackTrace.get(), res +"tocLaunchBtn is NOT clicked", 'error');
