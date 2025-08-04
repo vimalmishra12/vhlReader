@@ -946,7 +946,9 @@
   "tocSelectPage" : "#resource-text-0-0",
   "tocEnterPageNumber" : "#inputBaseRef",
   "tocEnterBtn" : "[data-tid=\"button-findPage\"]",
-  "tocHeading" : "#toc-heading"
+  "tocHeading" : "#toc-heading",
+  "tocUndockSvg" : "#undock_svg__Layer_1",
+"tocDockSvg" : "#dock_svg__Layer_1"
 
   }
 }

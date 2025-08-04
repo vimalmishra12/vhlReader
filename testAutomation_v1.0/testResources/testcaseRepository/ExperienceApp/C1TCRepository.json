@@ -13,13 +13,13 @@
         "id": "TST_TOCT_TC_1",
         "description": "Validate TOC Initialization",
         "tags": "P1",
-        "visualTest": false
+        "visualTest": true
       },
       {
         "id": "TST_TOCT_TC_2",
         "description": "Click TOC Launch Button",
         "tags": "P1",
-        "visualTest": false
+        "visualTest":true
       },
       {
         "id": "TST_TOCT_TC_3",

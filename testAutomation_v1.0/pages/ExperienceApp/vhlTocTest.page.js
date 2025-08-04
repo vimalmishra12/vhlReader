@@ -13,6 +13,8 @@ tocSelectPage: selectorFile.vhlToc.tocSelectPage,
 tocEnterPageNumber: selectorFile.vhlToc.tocEnterPageNumber,
 tocEnterBtn: selectorFile.vhlToc.tocEnterBtn,
 tocHeading: selectorFile.vhlToc.tocHeading,
+tocUndockSvg: selectorFile.vhlToc.tocUndockSvg,
+tocDockSvg: selectorFile.vhlToc.tocDockSvg,
 
 
 isInitialized: async function ()
@@ -40,6 +42,8 @@ tocSelectPage:(( await action.getElementCount(this.tocSelectPage)) > 0) ? await 
 tocEnterPageNumber:(( await action.getElementCount(this.tocEnterPageNumber)) > 0) ? await action.getText(this.tocEnterPageNumber) : null,
 tocEnterBtn:(( await action.getElementCount(this.tocEnterBtn)) > 0) ? await action.getText(this.tocEnterBtn) : null,
 tocHeading:(( await action.getElementCount(this.tocHeading)) > 0) ? await action.getText(this.tocHeading) : null,
+tocUndockSvg:(( await action.getElementCount(this.tocUndockSvg)) > 0) ? await action.waitForDisplayed(this.tocUndockSvg) : false,
+tocDockSvg:(( await action.getElementCount(this.tocDockSvg)) > 0) ? await action.waitForDisplayed(this.tocDockSvg) : false,
 }
  return obj; 
 },
@@ -65,6 +69,7 @@ var res;
 res =await action.click(this.tocDockBtn);
 if (true == res) {
  await logger.logInto(await stackTrace.get(), " tocDockBtn is clicked");
+res = await action.waitForDisplayed(this. tocUndockSvg, undefined);
 }
 else {
 await logger.logInto(await stackTrace.get(), res +"tocDockBtn is NOT clicked", 'error');
@@ -78,6 +83,7 @@ var res;
 res =await action.click(this.tocUndockBtn);
 if (true == res) {
  await logger.logInto(await stackTrace.get(), " tocUndockBtn is clicked");
+res = await action.waitForDisplayed(this. tocDockSvg, undefined);
 }
 else {
 await logger.logInto(await stackTrace.get(), res +"tocUndockBtn is NOT clicked", 'error');
@@ -91,6 +97,7 @@ var res;
 res =await action.click(this.tocCloseBtn);
 if (true == res) {
  await logger.logInto(await stackTrace.get(), " tocCloseBtn is clicked");
+res = await action.waitForDisplayed(this. tocHeading, undefined, true);
 }
 else {
 await logger.logInto(await stackTrace.get(), res +"tocCloseBtn is NOT clicked", 'error');
